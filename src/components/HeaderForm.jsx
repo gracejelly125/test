@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import StyledHeaderForm from "../styles/styled-HeaderForm";
+
 
 const HeaderForm = ({ countries, setCountries }) => {
     // 왜 자꾸 빨간줄이 뜨는거죠?!!!!
@@ -52,14 +54,15 @@ const HeaderForm = ({ countries, setCountries }) => {
 
   return (
     <>
-      <div>
+      <StyledHeaderForm>
+        <div>
         <h1>올림픽 메달 추적기</h1>
       </div>
       <form onSubmit={addCountryHandler}>
         <div>
           <p>국가명</p>
           <input
-            type="text"
+            type="text" required
             value={countryName}
             onChange={(e) => setCountryName(e.target.value.trim())}
           />
@@ -67,7 +70,7 @@ const HeaderForm = ({ countries, setCountries }) => {
         <div>
           <p>금메달</p>
           <input
-            type="number"
+            type="number" min="0" max="99" required
             value={gold}
             onChange={(e) => setGold(e.target.value)}
           />
@@ -75,7 +78,7 @@ const HeaderForm = ({ countries, setCountries }) => {
         <div>
           <p>은메달</p>
           <input
-            type="number"
+            type="number" min="0" max="99" required
             value={silver}
             onChange={(e) => setSilver(e.target.value)}
           />
@@ -83,7 +86,7 @@ const HeaderForm = ({ countries, setCountries }) => {
         <div>
           <p>동메달</p>
           <input
-            type="number"
+            type="number" min="0" max="99" required
             value={bronze}
             onChange={(e) => setBronze(e.target.value)}
           />
@@ -93,6 +96,7 @@ const HeaderForm = ({ countries, setCountries }) => {
           업데이트
         </button>
       </form>
+      </StyledHeaderForm>
     </>
   );
 };

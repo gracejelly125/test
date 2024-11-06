@@ -1,7 +1,7 @@
 import React from "react";
+import StyleMedalList, { DivMedalList } from "../styles/styled-MedalList";
 
 const MedalList = ({ countries, setCountries }) => {
-    
   const deleteCountryHandler = (countryToDelete) => {
     const deletedCountry = countries.filter(
       (country) => country.countryName !== countryToDelete
@@ -9,11 +9,13 @@ const MedalList = ({ countries, setCountries }) => {
     setCountries(deletedCountry);
   };
 
-  const sortedCountries = countries.sort((a, b) => b.gold - a.gold || b.silver - a.silver || b.bronze - a.bronze);
+  const sortedCountries = countries.sort(
+    (a, b) => b.gold - a.gold || b.silver - a.silver || b.bronze - a.bronze
+  );
 
   return (
     <>
-      <div>
+      <StyleMedalList>
         {countries.length === 0 ? (
           <p>아직 등록된 국가가 없습니다.</p>
         ) : (
@@ -21,7 +23,7 @@ const MedalList = ({ countries, setCountries }) => {
             {sortedCountries.map((country) => {
               return (
                 <>
-                  <div key={country.countryName}>
+                  <DivMedalList key={country.countryName}>
                     <p>{country.countryName}</p>
                     <p>{country.gold}</p>
                     <p>{country.silver}</p>
@@ -32,13 +34,13 @@ const MedalList = ({ countries, setCountries }) => {
                     >
                       삭제
                     </button>
-                  </div>
+                  </DivMedalList>
                 </>
               );
             })}
           </div>
         )}
-      </div>
+      </StyleMedalList>
     </>
   );
 };

@@ -5,7 +5,6 @@ import MedalList from "./components/MedalList";
 import HeaderForm from "./components/HeaderForm";
 
 const App = () => {
-
   const [countries, setCountries] = useState(() => {
     try {
       return localStorage.getItem("countries")
@@ -23,8 +22,8 @@ const App = () => {
 
   return (
     <>
-    <HeaderForm countries={countries} setCountries={setCountries} />
-    <MedalList countries={countries} setCountries={setCountries} />
+      <HeaderForm countries={countries} setCountries={setCountries} />
+      <MedalList countries={countries} setCountries={setCountries} />
     </>
   );
 };
