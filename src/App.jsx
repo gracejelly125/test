@@ -5,16 +5,7 @@ import MedalList from "./components/MedalList";
 import HeaderForm from "./components/HeaderForm";
 
 const App = () => {
-  const [countries, setCountries] = useState(() => {
-    try {
-      return localStorage.getItem("countries")
-        ? JSON.parse(localStorage.getItem("countries"))
-        : [];
-    } catch (err) {
-      console.error(err);
-      return [];
-    }
-  });
+  const [countries, setCountries] = useState(JSON.parse(localStorage.getItem("countries")) || []);
 
   useEffect(() => {
     localStorage.setItem("countries", JSON.stringify(countries));

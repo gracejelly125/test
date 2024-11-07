@@ -1,4 +1,4 @@
-import React from "react";
+
 import StyleMedalList, { DivMedalList } from "../styles/styled-MedalList";
 
 const MedalList = ({ countries, setCountries }) => {
@@ -9,7 +9,7 @@ const MedalList = ({ countries, setCountries }) => {
     setCountries(deletedCountry);
   };
 
-  const sortedCountries = countries.sort(
+  const sortedCountries = [...countries].sort(
     (a, b) => b.gold - a.gold || b.silver - a.silver || b.bronze - a.bronze
   );
 
@@ -23,7 +23,7 @@ const MedalList = ({ countries, setCountries }) => {
             {sortedCountries.map((country) => {
               return (
                 <>
-                  <DivMedalList key={country.countryName}>
+                  <DivMedalList key={country.id}>
                     <p>{country.countryName}</p>
                     <p>{country.gold}</p>
                     <p>{country.silver}</p>
